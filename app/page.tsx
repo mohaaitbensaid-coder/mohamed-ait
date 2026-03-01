@@ -157,11 +157,12 @@ export default function Home() {
             <div className="bg-[#121212] rounded-[1.5rem] p-6 border border-[#1f1f1f] flex items-center justify-between">
               <span className="text-sm font-bold text-zinc-500 border-r border-zinc-800 pr-6 mr-6">Dev Tools</span>
               <div className="flex gap-4">
-                <Terminal className="w-6 h-6 text-zinc-500 hover:text-white transition-colors" title="Terminal" />
-                <Github className="w-6 h-6 text-zinc-500 hover:text-white transition-colors" title="GitHub" />
-                <Figma className="w-6 h-6 text-zinc-500 hover:text-white transition-colors" title="Figma" />
-                <Code className="w-6 h-6 text-zinc-500 hover:text-white transition-colors" title="VS Code" />
-                <Globe className="w-6 h-6 text-zinc-500 hover:text-white transition-colors" title="Chrome DevTools" />
+                <Terminal className="w-6 h-6 text-zinc-500 hover:text-white transition-colors" />
+                <Github className="w-6 h-6 text-zinc-500 hover:text-white transition-colors" />
+                <Figma className="w-6 h-6 text-zinc-500 hover:text-white transition-colors" />
+                <Code className="w-6 h-6 text-zinc-500 hover:text-white transition-colors" />
+                <Globe className="w-6 h-6 text-zinc-500 hover:text-white transition-colors" />
+                <Zap className="w-6 h-6 text-blue-400 hover:text-blue-300 transition-colors" />
               </div>
             </div>
 
