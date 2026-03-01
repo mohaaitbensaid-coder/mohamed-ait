@@ -84,7 +84,7 @@ export default function Home() {
           <div className="md:col-span-8 flex flex-col gap-6 h-full">
             <Card className="flex-1 justify-center">
               <p className="text-lg md:text-2xl font-bold italic leading-relaxed text-zinc-200">
-                My name is <span className="text-white not-italic">Mohamed</span> self-taught <span className="text-white not-italic">Front-end Developer</span> with 4+ years of experience creating modern, interactive, and high-performance web applications that make a lasting impression.
+                My name is <span className="text-white not-italic">Mohamed</span> self-taught <span className="text-white not-italic">Front-end Developer</span> with 3+ years of experience creating modern, interactive, and high-performance web applications that make a lasting impression.
               </p>
             </Card>
 
