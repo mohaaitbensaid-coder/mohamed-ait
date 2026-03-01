@@ -170,28 +170,8 @@ export default function Home() {
           </div>
 
           {/* Education Area */}
-          <Card className="flex flex-col gap-8">
-            <div className="flex items-start gap-4">
-              <div className="flex-1">
-                <div className="flex justify-between items-center mb-1">
-                  <h4 className="font-bold text-lg">Bachelor of CompSci</h4>
-                  <span className="bg-black/50 px-2 py-1 rounded text-[9px] font-bold text-zinc-600 border border-zinc-800">2017 - 2021</span>
-                </div>
-                <p className="text-zinc-500 text-xs">University of Tech</p>
-              </div>
-            </div>
-
-            <div className="h-[1px] bg-zinc-800 w-full" />
-
-            <div className="flex items-start gap-4">
-              <div className="flex-1">
-                <div className="flex justify-between items-center mb-1">
-                  <h4 className="font-bold text-lg">Full Stack Certification</h4>
-                  <span className="bg-black/50 px-2 py-1 rounded text-[9px] font-bold text-zinc-600 border border-zinc-800">2021</span>
-                </div>
-                <p className="text-zinc-500 text-xs">Alx Academy Africa</p>
-              </div>
-            </div>
+          <Card className="flex flex-col gap-8 justify-center items-center text-center">
+            <h4 className="text-zinc-600 font-medium italic">Education background...</h4>
           </Card>
         </div>
 
