@@ -20,7 +20,8 @@ import {
   Instagram,
   Terminal,
   Zap,
-  Globe2
+  Globe2,
+  GraduationCap
 } from "lucide-react";
 import React from "react";
 
@@ -169,17 +170,26 @@ export default function Home() {
             {/* Languages */}
             <div className="bg-[#121212] rounded-[1.5rem] p-6 border border-[#1f1f1f] flex items-center justify-between">
               <span className="text-sm font-bold text-zinc-500 border-r border-zinc-800 pr-6 mr-6">Languages</span>
-              <div className="flex gap-3">
-                <span className="text-lg">🇲🇦</span>
-                <span className="text-lg">🇫🇷</span>
-                <span className="text-lg">🇬🇧</span>
+              <div className="flex gap-5">
+                <div className="flex flex-col items-center gap-1">
+                  <span className="text-xl">🇲🇦</span>
+                  <span className="text-[10px] font-bold text-zinc-600">AR</span>
+                </div>
+                <div className="flex flex-col items-center gap-1">
+                  <span className="text-xl">🇫🇷</span>
+                  <span className="text-[10px] font-bold text-zinc-600">FR</span>
+                </div>
+                <div className="flex flex-col items-center gap-1">
+                  <span className="text-xl">🇬🇧</span>
+                  <span className="text-[10px] font-bold text-zinc-600">EN</span>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Education Area */}
           <Card className="flex flex-col gap-4 justify-center items-center text-center">
-            <span className="text-4xl">🎓</span>
+            <GraduationCap className="w-12 h-12 text-zinc-500" />
             <p className="text-zinc-300 font-semibold text-base leading-relaxed">
               Entirely self-taught
             </p>
