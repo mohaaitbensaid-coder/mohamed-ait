@@ -116,7 +116,6 @@ export default function Home() {
               <span className="bg-black/50 px-3 py-1 rounded-lg text-[10px] font-bold text-zinc-500 border border-zinc-800">2024 - 2026</span>
             </div>
             <ul className="space-y-3 text-zinc-400 text-sm list-disc pl-4 marker:text-zinc-600">
-              <li>Built over 20+ custom React dashboards for clients worldwide.</li>
               <li>Specialized in performance optimization and Core Web Vitals.</li>
               <li>Collaborated with international teams across UI/UX and Backend.</li>
               <li>Delivered pixel-perfect implementations using Tailwind CSS.</li>
