@@ -204,19 +204,19 @@ export default function Home() {
           <div className="flex flex-wrap gap-6 items-center">
             <div className="flex items-center gap-2 text-zinc-400 text-xs py-2 bg-zinc-900 px-4 rounded-xl border border-zinc-800">
               <Zap className="w-3.5 h-3.5" />
-              <span>24 years</span>
+              <span>20 years</span>
             </div>
             <div className="flex items-center gap-2 text-zinc-400 text-xs py-2 bg-zinc-900 px-4 rounded-xl border border-zinc-800">
               <Mail className="w-3.5 h-3.5" />
-              <span>mohamed.dev@email.com</span>
+              <span>mohamedait684912@gmail.com</span>
             </div>
             <div className="flex items-center gap-2 text-zinc-400 text-xs py-2 bg-zinc-900 px-4 rounded-xl border border-zinc-800">
               <Smartphone className="w-3.5 h-3.5" />
-              <span>+212 600000000</span>
+              <span>+212 783086770</span>
             </div>
             <div className="flex items-center gap-2 text-zinc-400 text-xs py-2 bg-zinc-900 px-4 rounded-xl border border-zinc-800">
               <MapPin className="w-3.5 h-3.5" />
-              <span>Casablanca, Morocco</span>
+              <span>TAROUDANT, MOROCCO</span>
             </div>
           </div>
         </div>
