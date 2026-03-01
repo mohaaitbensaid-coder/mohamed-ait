@@ -195,18 +195,33 @@ export default function Home() {
         <div className="bg-[#121212] rounded-[1.5rem] p-6 border border-[#1f1f1f] flex items-center gap-6">
           <span className="text-sm font-bold text-zinc-500 pl-4 border-r border-zinc-800 pr-4">Portfolio</span>
           <div className="flex flex-wrap gap-4">
-            <button className="flex items-center gap-2 px-4 py-2 bg-zinc-900 rounded-xl border border-zinc-800 hover:bg-zinc-800 transition-all text-purple-500">
+            <a
+              href="https://www.instagram.com/mohamed.a.b.s?igsh=MXIyaGpub2I3aGtyMA=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 bg-zinc-900 rounded-xl border border-zinc-800 hover:bg-zinc-800 transition-all text-purple-500"
+            >
               <Instagram className="w-4 h-4" />
               <span className="text-xs font-semibold text-white">Instagram</span>
-            </button>
-            <button className="flex items-center gap-2 px-4 py-2 bg-zinc-900 rounded-xl border border-zinc-800 hover:bg-zinc-800 transition-all text-red-500">
+            </a>
+            <a
+              href="https://www.youtube.com/@mohamedait-ru8pd"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 bg-zinc-900 rounded-xl border border-zinc-800 hover:bg-zinc-800 transition-all text-red-500"
+            >
               <Youtube className="w-4 h-4" />
               <span className="text-xs font-semibold text-white">Youtube</span>
-            </button>
-            <button className="flex items-center gap-2 px-4 py-2 bg-zinc-900 rounded-xl border border-zinc-800 hover:bg-zinc-800 transition-all text-green-500">
+            </a>
+            <a
+              href="https://wa.me/212783086770"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 bg-zinc-900 rounded-xl border border-zinc-800 hover:bg-zinc-800 transition-all text-green-500"
+            >
               <MessageCircle className="w-4 h-4" />
               <span className="text-xs font-semibold text-white">WhatsApp</span>
-            </button>
+            </a>
           </div>
         </div>
 
