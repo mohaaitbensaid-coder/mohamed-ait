@@ -175,8 +175,14 @@ export default function Home() {
           </div>
 
           {/* Education Area */}
-          <Card className="flex flex-col gap-8 justify-center items-center text-center">
-            <h4 className="text-zinc-600 font-medium italic">Education background...</h4>
+          <Card className="flex flex-col gap-4 justify-center items-center text-center">
+            <span className="text-4xl">🎓</span>
+            <p className="text-zinc-300 font-semibold text-base leading-relaxed">
+              Entirely self-taught
+            </p>
+            <p className="text-zinc-500 text-sm leading-relaxed">
+              Built skills through projects, online courses, and real-world experience.
+            </p>
           </Card>
         </div>
 
