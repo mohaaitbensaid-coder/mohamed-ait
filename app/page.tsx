@@ -170,19 +170,10 @@ export default function Home() {
             {/* Languages */}
             <div className="bg-[#121212] rounded-[1.5rem] p-6 border border-[#1f1f1f] flex items-center justify-between">
               <span className="text-sm font-bold text-zinc-500 border-r border-zinc-800 pr-6 mr-6">Languages</span>
-              <div className="flex gap-5">
-                <div className="flex flex-col items-center gap-1">
-                  <span className="text-xl">🇲🇦</span>
-                  <span className="text-[10px] font-bold text-zinc-600">AR</span>
-                </div>
-                <div className="flex flex-col items-center gap-1">
-                  <span className="text-xl">🇫🇷</span>
-                  <span className="text-[10px] font-bold text-zinc-600">FR</span>
-                </div>
-                <div className="flex flex-col items-center gap-1">
-                  <span className="text-xl">🇬🇧</span>
-                  <span className="text-[10px] font-bold text-zinc-600">EN</span>
-                </div>
+              <div className="flex gap-4">
+                <span className="text-sm font-medium text-zinc-300">Arabic</span>
+                <span className="text-sm font-medium text-zinc-300">French</span>
+                <span className="text-sm font-medium text-zinc-300">English</span>
               </div>
             </div>
           </div>
