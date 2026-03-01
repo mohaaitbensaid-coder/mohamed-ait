@@ -75,7 +75,7 @@ export default function Home() {
                 {/* Mock Avatar placeholder logic */}
                 <div className="absolute inset-4 rounded-[2.5rem] bg-zinc-900 border border-white/5 flex items-center justify-center overflow-hidden">
                   <img
-                    src="/profile.jpg"
+                    src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9n3Ou54TLUf_pvwcziXrhcnZbWCcmKIiu7sIA8jj3MijqsEssl93P18-jCXZT9hCPaob68p4m6GTw0CAaHAuTMaDSWri4DF8jHeetpJApzc73KTZvDgdo60ItW0k7KgDoAWvvhVeuUhSfILm1lvjXHyN-NJnQ6YpQuayUDo6I-C3pQetLu3VGRIxC/s1080/profile.jpg.jpeg"
                     alt="Mohamed"
                     className="w-full h-full object-cover grayscale-[30%] contrast-[110%] brightness-[80%] hover:grayscale-0 hover:brightness-100 transition-all duration-700"
                   />
