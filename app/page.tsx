@@ -95,7 +95,9 @@ export default function Home() {
             <div className="bg-[#121212] rounded-[1.5rem] p-4 flex items-center gap-6 border border-[#1f1f1f]">
               <span className="text-sm font-bold text-zinc-500 pl-4 border-r border-zinc-800 pr-4">Interests</span>
               <div className="flex flex-wrap gap-2">
-                <Tag text="Gaming" />
+                <Tag text="Design" />
+                <Tag text="Artificial Intelligence" />
+                <Tag text="Electronics" />
                 <Tag text="Open Source" />
                 <Tag text="Clean Code" />
               </div>
