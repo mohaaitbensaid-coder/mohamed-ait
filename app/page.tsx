@@ -107,7 +107,7 @@ export default function Home() {
                 <h3 className="text-xl font-bold">Freelancer</h3>
                 <p className="text-zinc-500 text-sm">Front-end Engineer</p>
               </div>
-              <span className="bg-black/50 px-3 py-1 rounded-lg text-[10px] font-bold text-zinc-500 border border-zinc-800">2021 - now</span>
+              <span className="bg-black/50 px-3 py-1 rounded-lg text-[10px] font-bold text-zinc-500 border border-zinc-800">2024 - 2026</span>
             </div>
             <ul className="space-y-3 text-zinc-400 text-sm list-disc pl-4 marker:text-zinc-600">
               <li>Built over 20+ custom React dashboards for clients worldwide.</li>
@@ -123,7 +123,7 @@ export default function Home() {
                 <h3 className="text-xl font-bold">Meetzed</h3>
                 <p className="text-zinc-500 text-sm">Junior Web Dev</p>
               </div>
-              <span className="bg-black/50 px-3 py-1 rounded-lg text-[10px] font-bold text-zinc-500 border border-zinc-800">2020 - 2021</span>
+              <span className="bg-black/50 px-3 py-1 rounded-lg text-[10px] font-bold text-zinc-500 border border-zinc-800">2022 - 2024</span>
             </div>
             <ul className="space-y-3 text-zinc-400 text-sm list-disc pl-4 marker:text-zinc-600">
               <li>Maintained legacy HTML/CSS sites and migrated to React.</li>
