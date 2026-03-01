@@ -74,7 +74,11 @@ export default function Home() {
                 <span className="text-8xl font-black text-white/10">MB</span>
                 {/* Mock Avatar placeholder logic */}
                 <div className="absolute inset-4 rounded-[2.5rem] bg-zinc-900 border border-white/5 flex items-center justify-center overflow-hidden">
-                  <div className="w-full h-full bg-[url('https://api.dicebear.com/7.x/avataaars/svg?seed=Felix')] bg-cover bg-center" />
+                  <img
+                    src="/profile.jpg"
+                    alt="Mohamed"
+                    className="w-full h-full object-cover grayscale-[30%] contrast-[110%] brightness-[80%] hover:grayscale-0 hover:brightness-100 transition-all duration-700"
+                  />
                 </div>
               </div>
             </motion.div>
