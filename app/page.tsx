@@ -7,19 +7,20 @@ import {
   Twitter,
   Mail,
   Globe,
-  Cpu,
   Code,
   Palette,
   ExternalLink,
-  ChevronRight,
-  Briefcase,
-  Layers,
-  Database,
-  Cloud,
+  MapPin,
+  Calendar,
+  Smartphone,
+  Cpu,
+  Figma,
+  Dribbble,
+  Youtube,
+  Instagram,
   Terminal,
-  Activity,
-  Rocket,
-  Plus
+  Zap,
+  Globe2
 } from "lucide-react";
 import React from "react";
 
@@ -27,284 +28,220 @@ const container = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.1
-    }
+    transition: { staggerChildren: 0.1 }
   }
 };
 
 const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+  hidden: { opacity: 0, scale: 0.95 },
+  show: { opacity: 1, scale: 1, transition: { duration: 0.4, ease: "easeOut" } }
 };
 
-const BentoGrid = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <motion.div
-      variants={container}
-      initial="hidden"
-      animate="show"
-      className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto p-4 md:p-8 min-h-screen bg-black text-white"
-    >
-      {children}
-    </motion.div>
-  );
-};
+const Card = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
+  <motion.div
+    variants={item}
+    className={`bg-[#121212] rounded-[2rem] p-6 md:p-8 flex flex-col justify-start border border-[#1f1f1f] ${className}`}
+  >
+    {children}
+  </motion.div>
+);
 
-const BentoCard = ({
-  children,
-  className = "",
-  title,
-  description,
-  icon,
-  glow = false,
-  gradient = false
-}: {
-  children: React.ReactNode;
-  className?: string;
-  title?: string;
-  description?: string;
-  icon?: React.ReactNode;
-  glow?: boolean;
-  gradient?: boolean;
-}) => {
-  return (
-    <motion.div
-      variants={item}
-      whileHover={{ y: -5, scale: 1.01 }}
-      className={`relative group overflow-hidden ${gradient ? 'bg-gradient-to-br from-[#1a1a1a] to-[#262626]' : 'bg-[#1a1a1a]'} border border-[#333333] rounded-3xl p-8 flex flex-col justify-between transition-all duration-500 hover:border-white/20 hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] ${className}`}
-    >
-      {glow && (
-        <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-      )}
-
-      <div className="relative z-10 flex flex-col h-full">
-        {(title || icon) && (
-          <div className="flex items-center justify-between mb-6">
-            <div className="flex items-center gap-3">
-              {icon && <div className="p-2 rounded-xl bg-zinc-800/50 text-zinc-400 group-hover:text-white transition-colors border border-zinc-700/50">{icon}</div>}
-              {title && <h3 className="text-lg font-medium tracking-tight text-zinc-200 group-hover:text-white transition-colors">{title}</h3>}
-            </div>
-            {glow && <div className="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.8)]" />}
-          </div>
-        )}
-
-        <div className="flex-1">
-          {children}
-        </div>
-
-        {description && (
-          <p className="mt-4 text-sm text-zinc-500 group-hover:text-zinc-400 transition-colors leading-relaxed font-light">
-            {description}
-          </p>
-        )}
-      </div>
-    </motion.div>
-  );
-};
+const Tag = ({ icon, text }: { icon?: React.ReactNode; text: string }) => (
+  <div className="flex items-center gap-2 px-4 py-2 bg-[#1a1a1a] rounded-xl border border-[#2a2a2a] text-xs font-medium text-zinc-400">
+    {icon}
+    {text}
+  </div>
+);
 
 export default function Home() {
-  const techStack = [
-    { name: "React", icon: <Code className="w-5 h-5" />, color: "text-blue-400" },
-    { name: "Next.js", icon: <Cpu className="w-5 h-5" />, color: "text-white" },
-    { name: "Node.js", icon: <Terminal className="w-5 h-5" />, color: "text-green-400" },
-    { name: "Tailwind", icon: <Palette className="w-5 h-5" />, color: "text-sky-400" },
-  ];
-
-  const devOpsStack = [
-    { name: "PostgreSQL", icon: <Database className="w-5 h-5" />, color: "text-blue-500" },
-    { name: "Docker", icon: <Layers className="w-5 h-5" />, color: "text-blue-400" },
-    { name: "AWS", icon: <Cloud className="w-5 h-5" />, color: "text-orange-400" },
-  ];
-
-  const liveProjects = [
-    { name: "EcoTrack AI", desc: "Sustainability monitoring platform", tech: "Next.js + AWS" },
-    { name: "Nova Social", desc: "Decentralized messaging app", tech: "React + Node.js" },
-    { name: "Pulse Pay", desc: "Fast crypto payment gateway", tech: "TypeScript + Docker" },
-  ];
-
-  const experience = [
-    { company: "Tech Flow", role: "Senior Frontend Engineer", period: "2023 - Present" },
-    { company: "Creative Pixel", role: "UI/UX Designer", period: "2021 - 2023" },
-    { company: "Innova Studio", role: "Fullstack Dev", period: "2019 - 2021" },
-  ];
-
   return (
-    <main className="bg-black selection:bg-white/20 overflow-x-hidden font-sans">
-      {/* Background Decorative Element */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-500/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/5 rounded-full blur-[120px]" />
-      </div>
-
-      <BentoGrid>
-        {/* Profile Card */}
-        <BentoCard
-          className="md:col-span-2 md:row-span-2 min-h-[450px]"
-          glow
-          gradient
-        >
-          <div className="mt-auto">
+    <main className="bg-black min-h-screen text-white p-4 md:p-10 font-sans selection:bg-white/10">
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="max-w-5xl mx-auto flex flex-col gap-6"
+      >
+        {/* Top Section: Avatar and Bio */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+          {/* Avatar Area */}
+          <div className="md:col-span-4 flex flex-col gap-6 h-full">
             <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              className="w-24 h-24 rounded-[2rem] bg-gradient-to-br from-zinc-800 to-zinc-950 border border-zinc-700/50 flex items-center justify-center mb-8 shadow-2xl overflow-hidden group-hover:border-zinc-500 transition-colors"
+              variants={item}
+              className="relative aspect-square rounded-[3rem] overflow-hidden bg-[#121212] border border-[#1f1f1f]"
             >
-              <span className="text-5xl text-white font-black tracking-tighter">JD</span>
+              <div className="absolute inset-0 bg-gradient-to-br from-zinc-700 to-zinc-950 flex items-center justify-center">
+                <span className="text-8xl font-black text-white/10">MB</span>
+                {/* Mock Avatar placeholder logic */}
+                <div className="absolute inset-4 rounded-[2.5rem] bg-zinc-900 border border-white/5 flex items-center justify-center overflow-hidden">
+                  <div className="w-full h-full bg-[url('https://api.dicebear.com/7.x/avataaars/svg?seed=Felix')] bg-cover bg-center" />
+                </div>
+              </div>
             </motion.div>
-            <motion.h1
-              className="text-6xl md:text-7xl font-bold tracking-tight mb-4 bg-gradient-to-b from-white to-zinc-500 bg-clip-text text-transparent"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 }}
-            >
-              John Doe
-            </motion.h1>
-            <p className="text-xl text-zinc-400 flex items-center gap-3 font-light">
-              <span className="inline-block w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.6)] animate-pulse" />
-              Full Stack Engineering Specialist
-            </p>
           </div>
-          <div className="hidden md:block absolute top-10 right-10">
-            <div className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors cursor-pointer">
-              <ExternalLink className="w-5 h-5 text-zinc-400 group-hover:text-white" />
+
+          {/* Bio and Interests */}
+          <div className="md:col-span-8 flex flex-col gap-6 h-full">
+            <Card className="flex-1 justify-center">
+              <p className="text-lg md:text-2xl font-bold italic leading-relaxed text-zinc-200">
+                My name is <span className="text-white not-italic">Mohamed</span> self-taught <span className="text-white not-italic">Front-end Developer</span> with 4+ years of experience creating modern, interactive, and high-performance web applications that make a lasting impression.
+              </p>
+            </Card>
+
+            <div className="bg-[#121212] rounded-[1.5rem] p-4 flex items-center gap-6 border border-[#1f1f1f]">
+              <span className="text-sm font-bold text-zinc-500 pl-4 border-r border-zinc-800 pr-4">Interests</span>
+              <div className="flex flex-wrap gap-2">
+                <Tag text="Gaming" />
+                <Tag text="Open Source" />
+                <Tag text="Clean Code" />
+              </div>
             </div>
           </div>
-        </BentoCard>
+        </div>
 
-        {/* Tech Stack Card */}
-        <BentoCard
-          className="md:col-span-1"
-          title="Tech Stack"
-          icon={<Cpu className="w-5 h-5 text-blue-400" />}
-        >
-          <div className="grid grid-cols-2 gap-3">
-            {techStack.map((tech) => (
-              <div key={tech.name} className="flex flex-col items-center justify-center p-3 rounded-2xl bg-zinc-900/40 border border-zinc-800/50 group/tech hover:bg-zinc-800/80 transition-all">
-                <div className={`text-xl mb-1 ${tech.color}`}>
-                  {tech.icon}
+        {/* Experience Section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Card>
+            <div className="flex justify-between items-start mb-6">
+              <div>
+                <h3 className="text-xl font-bold">Freelancer</h3>
+                <p className="text-zinc-500 text-sm">Front-end Engineer</p>
+              </div>
+              <span className="bg-black/50 px-3 py-1 rounded-lg text-[10px] font-bold text-zinc-500 border border-zinc-800">2021 - now</span>
+            </div>
+            <ul className="space-y-3 text-zinc-400 text-sm list-disc pl-4 marker:text-zinc-600">
+              <li>Built over 20+ custom React dashboards for clients worldwide.</li>
+              <li>Specialized in performance optimization and Core Web Vitals.</li>
+              <li>Collaborated with international teams across UI/UX and Backend.</li>
+              <li>Delivered pixel-perfect implementations using Tailwind CSS.</li>
+            </ul>
+          </Card>
+
+          <Card>
+            <div className="flex justify-between items-start mb-6">
+              <div>
+                <h3 className="text-xl font-bold">Meetzed</h3>
+                <p className="text-zinc-500 text-sm">Junior Web Dev</p>
+              </div>
+              <span className="bg-black/50 px-3 py-1 rounded-lg text-[10px] font-bold text-zinc-500 border border-zinc-800">2020 - 2021</span>
+            </div>
+            <ul className="space-y-3 text-zinc-400 text-sm list-disc pl-4 marker:text-zinc-600">
+              <li>Maintained legacy HTML/CSS sites and migrated to React.</li>
+              <li>Developed reusable UI components and design systems.</li>
+              <li>Tools used: Git, VS Code, Chrome DevTools.</li>
+              <li>Assisted in API integrations and state management.</li>
+            </ul>
+          </Card>
+        </div>
+
+        {/* Tools and Education */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="flex flex-col gap-6">
+            {/* Tech Stack */}
+            <div className="bg-[#121212] rounded-[1.5rem] p-6 border border-[#1f1f1f] flex items-center justify-between">
+              <span className="text-sm font-bold text-zinc-500 border-r border-zinc-800 pr-6 mr-6">Core Stack</span>
+              <div className="flex gap-4">
+                <div className="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center text-blue-400 font-bold text-xs border border-blue-500/30">R</div>
+                <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-white font-bold text-xs border border-white/20">N</div>
+                <div className="w-8 h-8 rounded-lg bg-sky-500/20 flex items-center justify-center text-sky-400 font-bold text-xs border border-sky-500/30">T</div>
+                <div className="w-8 h-8 rounded-lg bg-yellow-500/20 flex items-center justify-center text-yellow-400 font-bold text-xs border border-yellow-500/30">J</div>
+              </div>
+            </div>
+
+            {/* Dev Tools */}
+            <div className="bg-[#121212] rounded-[1.5rem] p-6 border border-[#1f1f1f] flex items-center justify-between">
+              <span className="text-sm font-bold text-zinc-500 border-r border-zinc-800 pr-6 mr-6">Dev Tools</span>
+              <div className="flex gap-4">
+                <Terminal className="w-6 h-6 text-zinc-500 hover:text-white transition-colors" />
+                <Github className="w-6 h-6 text-zinc-500 hover:text-white transition-colors" />
+                <Figma className="w-6 h-6 text-zinc-500 hover:text-white transition-colors" />
+              </div>
+            </div>
+
+            {/* Languages */}
+            <div className="bg-[#121212] rounded-[1.5rem] p-6 border border-[#1f1f1f] flex items-center justify-between">
+              <span className="text-sm font-bold text-zinc-500 border-r border-zinc-800 pr-6 mr-6">Languages</span>
+              <div className="flex gap-3">
+                <span className="text-lg">🇲🇦</span>
+                <span className="text-lg">🇫🇷</span>
+                <span className="text-lg">🇬🇧</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Education Area */}
+          <Card className="flex flex-col gap-8">
+            <div className="flex items-start gap-4">
+              <div className="flex-1">
+                <div className="flex justify-between items-center mb-1">
+                  <h4 className="font-bold text-lg">Bachelor of CompSci</h4>
+                  <span className="bg-black/50 px-2 py-1 rounded text-[9px] font-bold text-zinc-600 border border-zinc-800">2017 - 2021</span>
                 </div>
-                <span className="text-[10px] text-zinc-400 group-hover/tech:text-white transition-colors uppercase tracking-widest">{tech.name}</span>
+                <p className="text-zinc-500 text-xs">University of Tech</p>
               </div>
-            ))}
-          </div>
-        </BentoCard>
+            </div>
 
-        {/* Database/DevOps Card */}
-        <BentoCard
-          className="md:col-span-1"
-          title="DB & DevOps"
-          icon={<Cloud className="w-5 h-5 text-orange-400" />}
-        >
-          <div className="flex flex-col gap-3 mt-1">
-            {devOpsStack.map((tool) => (
-              <div key={tool.name} className="flex items-center gap-3 p-3 bg-zinc-900/40 rounded-2xl border border-zinc-800/50 group/tool hover:bg-zinc-800/80 transition-all">
-                <div className={`${tool.color} group-hover/tool:scale-110 transition-transform`}>
-                  {tool.icon}
+            <div className="h-[1px] bg-zinc-800 w-full" />
+
+            <div className="flex items-start gap-4">
+              <div className="flex-1">
+                <div className="flex justify-between items-center mb-1">
+                  <h4 className="font-bold text-lg">Full Stack Certification</h4>
+                  <span className="bg-black/50 px-2 py-1 rounded text-[9px] font-bold text-zinc-600 border border-zinc-800">2021</span>
                 </div>
-                <span className="text-sm font-medium text-zinc-300 group-hover/tool:text-white">{tool.name}</span>
+                <p className="text-zinc-500 text-xs">Alx Academy Africa</p>
               </div>
-            ))}
-          </div>
-        </BentoCard>
+            </div>
+          </Card>
+        </div>
 
-        {/* Live Projects Card */}
-        <BentoCard
-          className="md:col-span-2"
-          title="Live Projects"
-          icon={<Rocket className="w-5 h-5 text-emerald-400" />}
-          gradient
-        >
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-2">
-            {liveProjects.map((project) => (
-              <div key={project.name} className="flex flex-col p-4 bg-zinc-900/30 rounded-2xl border border-zinc-800/40 hover:border-zinc-600 transition-all group/project cursor-pointer">
-                <h4 className="text-sm font-bold text-white mb-1">{project.name}</h4>
-                <p className="text-[10px] text-zinc-500 mb-2 font-light line-clamp-1">{project.desc}</p>
-                <span className="text-[9px] font-mono text-zinc-400 uppercase tracking-tighter self-end">{project.tech}</span>
-              </div>
-            ))}
-            <div className="flex items-center justify-center border-2 border-dashed border-zinc-800 rounded-2xl p-4 hover:border-zinc-500 transition-colors opacity-50 hover:opacity-100 cursor-pointer">
-              <Plus className="w-6 h-6 text-zinc-500" />
+        {/* Portfolio Section */}
+        <div className="bg-[#121212] rounded-[1.5rem] p-6 border border-[#1f1f1f] flex items-center gap-6">
+          <span className="text-sm font-bold text-zinc-500 pl-4 border-r border-zinc-800 pr-4">Portfolio</span>
+          <div className="flex flex-wrap gap-4">
+            <button className="flex items-center gap-2 px-4 py-2 bg-zinc-900 rounded-xl border border-zinc-800 hover:bg-zinc-800 transition-all">
+              <Globe2 className="w-4 h-4 text-zinc-500" />
+              <span className="text-xs font-semibold">Bento</span>
+            </button>
+            <button className="flex items-center gap-2 px-4 py-2 bg-zinc-900 rounded-xl border border-zinc-800 hover:bg-zinc-800 transition-all text-pink-500">
+              <Dribbble className="w-4 h-4" />
+              <span className="text-xs font-semibold text-white">Dribbble</span>
+            </button>
+            <button className="flex items-center gap-2 px-4 py-2 bg-zinc-900 rounded-xl border border-zinc-800 hover:bg-zinc-800 transition-all text-red-500">
+              <Youtube className="w-4 h-4" />
+              <span className="text-xs font-semibold text-white">Youtube</span>
+            </button>
+            <button className="flex items-center gap-2 px-4 py-2 bg-zinc-900 rounded-xl border border-zinc-800 hover:bg-zinc-800 transition-all text-purple-500">
+              <Instagram className="w-4 h-4" />
+              <span className="text-xs font-semibold text-white">Instagram</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Details Section */}
+        <div className="bg-[#121212] rounded-[1.5rem] p-6 border border-[#1f1f1f] flex flex-wrap items-center gap-8">
+          <span className="text-sm font-bold text-zinc-500 pl-4 border-r border-zinc-800 pr-4">Details</span>
+          <div className="flex flex-wrap gap-6 items-center">
+            <div className="flex items-center gap-2 text-zinc-400 text-xs py-2 bg-zinc-900 px-4 rounded-xl border border-zinc-800">
+              <Zap className="w-3.5 h-3.5" />
+              <span>24 years</span>
+            </div>
+            <div className="flex items-center gap-2 text-zinc-400 text-xs py-2 bg-zinc-900 px-4 rounded-xl border border-zinc-800">
+              <Mail className="w-3.5 h-3.5" />
+              <span>mohamed.dev@email.com</span>
+            </div>
+            <div className="flex items-center gap-2 text-zinc-400 text-xs py-2 bg-zinc-900 px-4 rounded-xl border border-zinc-800">
+              <Smartphone className="w-3.5 h-3.5" />
+              <span>+212 600000000</span>
+            </div>
+            <div className="flex items-center gap-2 text-zinc-400 text-xs py-2 bg-zinc-900 px-4 rounded-xl border border-zinc-800">
+              <MapPin className="w-3.5 h-3.5" />
+              <span>Casablanca, Morocco</span>
             </div>
           </div>
-        </BentoCard>
+        </div>
 
-        {/* GitHub Stats Card */}
-        <BentoCard
-          className="md:col-span-1"
-          title="GitHub Stats"
-          icon={<Activity className="w-5 h-5 text-purple-400" />}
-        >
-          <div className="space-y-4 mt-2">
-            <div className="flex justify-between items-center py-2 border-b border-zinc-800/50">
-              <span className="text-zinc-500 text-xs font-light">Contributions</span>
-              <span className="text-white text-lg font-bold">1,248</span>
-            </div>
-            <div className="flex justify-between items-center py-2 border-b border-zinc-800/50">
-              <span className="text-zinc-500 text-xs font-light">Repositories</span>
-              <span className="text-white text-lg font-bold">42</span>
-            </div>
-            <div className="flex justify-between items-center py-2">
-              <span className="text-zinc-500 text-xs font-light">Stars Earned</span>
-              <span className="text-white text-lg font-bold">350</span>
-            </div>
-          </div>
-        </BentoCard>
-
-        {/* Journey Card */}
-        <BentoCard
-          className="md:col-span-3"
-          title="Journey"
-          icon={<Briefcase className="w-5 h-5 text-blue-400" />}
-          gradient
-        >
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-            {experience.map((exp, i) => (
-              <div key={i} className="flex flex-col p-5 bg-zinc-950/50 rounded-3xl border border-zinc-800/50 group/exp hover:border-zinc-600 transition-all">
-                <div className="flex justify-between items-start mb-3">
-                  <span className="text-[10px] font-mono text-zinc-500 bg-zinc-950 px-3 py-1 rounded-full border border-zinc-800">
-                    {exp.period}
-                  </span>
-                </div>
-                <h4 className="text-lg font-semibold text-zinc-200 group-hover/exp:text-white transition-colors">{exp.company}</h4>
-                <p className="text-zinc-500 font-light text-sm mt-1">{exp.role}</p>
-              </div>
-            ))}
-          </div>
-        </BentoCard>
-
-        {/* Connect Card */}
-        <BentoCard
-          className="md:col-span-3"
-          title="Connect"
-          icon={<Mail className="w-5 h-5 text-emerald-400" />}
-        >
-          <div className="flex flex-wrap gap-4 mt-2">
-            <a href="#" className="flex-1 flex items-center gap-4 p-5 bg-zinc-900/30 rounded-3xl border border-zinc-800/50 hover:bg-zinc-800/80 hover:border-zinc-700 transition-all group/link">
-              <div className="p-2 rounded-lg bg-zinc-800 group-hover/link:bg-white group-hover/link:text-black transition-colors">
-                <Github className="w-5 h-5" />
-              </div>
-              <span className="font-medium">GitHub</span>
-              <ChevronRight className="w-5 h-5 ml-auto opacity-0 group-hover/link:opacity-100 -translate-x-2 group-hover/link:translate-x-0 transition-all text-zinc-500" />
-            </a>
-            <a href="#" className="flex-1 flex items-center gap-4 p-5 bg-zinc-900/30 rounded-3xl border border-zinc-800/50 hover:bg-zinc-800/80 hover:border-zinc-700 transition-all group/link">
-              <div className="p-2 rounded-lg bg-zinc-800 group-hover/link:bg-sky-500 transition-colors">
-                <Twitter className="w-5 h-5" />
-              </div>
-              <span className="font-medium">Twitter</span>
-              <ChevronRight className="w-5 h-5 ml-auto opacity-0 group-hover/link:opacity-100 -translate-x-2 group-hover/link:translate-x-0 transition-all text-zinc-500" />
-            </a>
-            <a href="#" className="flex-1 flex items-center gap-4 p-5 bg-zinc-900/30 rounded-3xl border border-zinc-800/50 hover:bg-zinc-800/80 hover:border-zinc-700 transition-all group/link">
-              <div className="p-2 rounded-lg bg-zinc-800 group-hover/link:bg-blue-600 transition-colors">
-                <Linkedin className="w-5 h-5" />
-              </div>
-              <span className="font-medium">LinkedIn</span>
-              <ChevronRight className="w-5 h-5 ml-auto opacity-0 group-hover/link:opacity-100 -translate-x-2 group-hover/link:translate-x-0 transition-all text-zinc-500" />
-            </a>
-          </div>
-        </BentoCard>
-      </BentoGrid>
+      </motion.div>
     </main>
   );
 }
