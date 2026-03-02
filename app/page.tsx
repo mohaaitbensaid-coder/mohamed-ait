@@ -232,19 +232,20 @@ export default function Home() {
           <span className="text-sm font-bold text-zinc-500 pl-4 border-r border-zinc-800 pr-4">Support</span>
           <div className="flex flex-wrap gap-4">
             <a
-              href="#"
+              href="https://www.paypal.me/mohamed684912"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 bg-zinc-900 rounded-xl border border-zinc-800 hover:bg-zinc-800 transition-all text-blue-500"
             >
               <CreditCard className="w-4 h-4" />
               <span className="text-xs font-semibold text-white">PayPal</span>
             </a>
-            <a
-              href="#"
-              className="flex items-center gap-2 px-4 py-2 bg-zinc-900 rounded-xl border border-zinc-800 hover:bg-zinc-800 transition-all text-yellow-500"
+            <div
+              className="flex items-center gap-2 px-4 py-2 bg-zinc-900 rounded-xl border border-zinc-800 text-yellow-500"
             >
               <Wallet className="w-4 h-4" />
-              <span className="text-xs font-semibold text-white">Binance</span>
-            </a>
+              <span className="text-xs font-semibold text-white">Binance ID: 1140524483</span>
+            </div>
           </div>
         </div>
 
