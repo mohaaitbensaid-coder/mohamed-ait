@@ -22,7 +22,9 @@ import {
   Zap,
   Globe2,
   GraduationCap,
-  MessageCircle
+  MessageCircle,
+  CreditCard,
+  Wallet
 } from "lucide-react";
 import React from "react";
 
@@ -221,6 +223,27 @@ export default function Home() {
             >
               <MessageCircle className="w-4 h-4" />
               <span className="text-xs font-semibold text-white">WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Support Me Section */}
+        <div className="bg-[#121212] rounded-[1.5rem] p-6 border border-[#1f1f1f] flex items-center gap-6">
+          <span className="text-sm font-bold text-zinc-500 pl-4 border-r border-zinc-800 pr-4">Support</span>
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="#"
+              className="flex items-center gap-2 px-4 py-2 bg-zinc-900 rounded-xl border border-zinc-800 hover:bg-zinc-800 transition-all text-blue-500"
+            >
+              <CreditCard className="w-4 h-4" />
+              <span className="text-xs font-semibold text-white">PayPal</span>
+            </a>
+            <a
+              href="#"
+              className="flex items-center gap-2 px-4 py-2 bg-zinc-900 rounded-xl border border-zinc-800 hover:bg-zinc-800 transition-all text-yellow-500"
+            >
+              <Wallet className="w-4 h-4" />
+              <span className="text-xs font-semibold text-white">Binance</span>
             </a>
           </div>
         </div>
